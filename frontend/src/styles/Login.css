@@ -1,0 +1,82 @@
+.login-container {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 28.125rem;
+  width: 100%;
+  height: auto;
+}
+
+.card-header {
+  font-size: 1.25rem !important;
+  font-weight: bold;
+  margin-top: 1.5rem !important;
+  margin-bottom: 2.5rem !important;
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.continue-button {
+  background-color: #f28c28 !important;
+  width: 8rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.email-field,
+.password-field {
+  width: 100%;
+  max-width: 18rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+  .card {
+    max-width: 85%;
+  }
+
+  .card-header {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .email-field,
+  .password-field {
+    max-width: 80% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 70%;
+  }
+
+  .card-header {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .email-field,
+  .password-field {
+    max-width: 65%;
+  }
+}
