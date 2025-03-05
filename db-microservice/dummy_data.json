@@ -1,0 +1,298 @@
+[
+    {
+        "name": "Tomato and Egg Scramble",
+        "description": "A simple scrambled eggs and tomatoes recipe, quick and easy to make.",
+        "ingredients": [
+        {
+            "name": "Tomato",
+            "quantity": "2",
+            "unit": "pieces"
+        },
+        {
+            "name": "Egg",
+            "quantity": "3",
+            "unit": "pieces"
+        },
+        {
+            "name": "Olive Oil",
+            "quantity": "1",
+            "unit": "tbsp"
+        },
+        {
+            "name": "Garlic",
+            "quantity": "1",
+            "unit": "clove"
+        }
+        ],
+        "instructions": [
+        "Heat olive oil in a pan over medium heat.",
+        "Crack the eggs into the pan and scramble them.",
+        "Chop the tomatoes and add them to the pan.",
+        "Cook until the eggs are fully scrambled and the tomatoes are soft.",
+        "Season with salt and pepper to taste."
+        ],
+        "prep_time": 10,
+        "cook_time": 5,
+        "max_time": 15,
+        "difficulty": "easy",
+        "ingredients_count": 4, 
+        "meal_type": "breakfast",
+        "image_url": "https://www.chileanfoodandgarden.com/wp-content/uploads/2014/05/huevos-tomate-3-768x560.jpg"
+    },
+    {
+        "name": "Pasta Primavera",
+        "description": "A quick and easy pasta dish with fresh vegetables.",
+        "ingredients": [
+          {
+            "name": "Pasta",
+            "quantity": "200",
+            "unit": "grams"
+          },
+          {
+            "name": "Zucchini",
+            "quantity": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Bell Pepper",
+            "quantity": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Olive Oil",
+            "quantity": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Garlic",
+            "quantity": "2",
+            "unit": "cloves"
+          }
+        ],
+        "instructions": [
+          "Cook pasta according to package instructions.",
+          "Chop zucchini and bell pepper into small pieces.",
+          "Heat olive oil in a pan and sauté garlic.",
+          "Add the chopped vegetables and cook for 5 minutes.",
+          "Mix the cooked pasta with the vegetables.",
+          "Season with salt, pepper, and Italian herbs to taste."
+        ],
+        "prep_time": 10,
+        "cook_time": 15,
+        "max_time": 25,
+        "difficulty": "medium",
+        "ingredients_count": 5,
+        "meal_type": "lunch",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR72ywd23Nxi09In7MKlxjfZZurkDyuackbQQ&s"
+    },
+    {
+        "name": "Banana Pancakes",
+        "description": "Fluffy pancakes made with ripe bananas for a sweet and healthy breakfast.",
+        "ingredients": [
+          {
+            "name": "Banana",
+            "quantity": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Flour",
+            "quantity": "1",
+            "unit": "cup"
+          },
+          {
+            "name": "Baking Powder",
+            "quantity": "1",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Milk",
+            "quantity": "1/2",
+            "unit": "cup"
+          },
+          {
+            "name": "Egg",
+            "quantity": "1",
+            "unit": "piece"
+          }
+        ],
+        "instructions": [
+          "Mash the bananas in a bowl.",
+          "Mix in the flour, baking powder, milk, and egg.",
+          "Heat a pan over medium heat and pour small portions of batter.",
+          "Cook until golden brown on both sides.",
+          "Serve with honey or maple syrup."
+        ],
+        "prep_time": 5,
+        "cook_time": 10,
+        "max_time": 15,
+        "difficulty": "easy",
+        "ingredients_count": 5,
+        "meal_type": "breakfast",
+        "image_url": "https://www.allrecipes.com/thmb/6x0Lw9L4MEU8INHnK4tXGRV9XWI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20334-banana-pancakes-i-DDMFS-4x3-9f291f03044247d48c9ec26917952402.jpg"
+      },
+      {
+        "name": "Chicken Salad",
+        "description": "A healthy chicken salad with fresh vegetables and a tangy dressing.",
+        "ingredients": [
+          {
+            "name": "Chicken Breast",
+            "quantity": "200",
+            "unit": "grams"
+          },
+          {
+            "name": "Lettuce",
+            "quantity": "1",
+            "unit": "head"
+          },
+          {
+            "name": "Cucumber",
+            "quantity": "1",
+            "unit": "piece"
+          },
+          {
+            "name": "Olive Oil",
+            "quantity": "2",
+            "unit": "tbsp"
+          },
+          {
+            "name": "Lemon",
+            "quantity": "1",
+            "unit": "piece"
+          }
+        ],
+        "instructions": [
+          "Grill or pan-fry the chicken breast until cooked through.",
+          "Chop the lettuce, cucumber, and lemon.",
+          "Slice the chicken and combine with the vegetables.",
+          "Drizzle with olive oil and lemon juice.",
+          "Season with salt and pepper."
+        ],
+        "prep_time": 10,
+        "cook_time": 15,
+        "max_time": 25,
+        "difficulty": "medium",
+        "ingredients_count": 5,
+        "meal_type": "salad",
+        "image_url": "https://www.themediterraneandish.com/wp-content/uploads/2021/03/Greek-chicken-salad-recipe-6.jpg"
+    },
+    {
+        "name": "Grilled Cheese Sandwich",
+        "description": "A classic grilled cheese sandwich with crispy bread and melted cheese.",
+        "ingredients": [
+          {
+            "name": "Bread",
+            "quantity": "2",
+            "unit": "slices"
+          },
+          {
+            "name": "Cheese",
+            "quantity": "2",
+            "unit": "slices"
+          },
+          {
+            "name": "Butter",
+            "quantity": "2",
+            "unit": "tbsp"
+          }
+        ],
+        "instructions": [
+          "Butter one side of each slice of bread.",
+          "Place cheese between the slices of bread, buttered side out.",
+          "Heat a pan over medium heat and cook the sandwich until golden brown on both sides.",
+          "Serve hot with your favorite dipping sauce."
+        ],
+        "prep_time": 5,
+        "cook_time": 5,
+        "max_time": 10,
+        "difficulty": "easy",
+        "ingredients_count": 3,
+        "meal_type": "breakfast",
+        "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2023/01/grilled-cheese.jpg"
+      },
+      {
+        "name": "Chocolate Chip Cookies",
+        "description": "Sweet and soft cookies loaded with chocolate chips.",
+        "ingredients": [
+          {
+            "name": "Flour",
+            "quantity": "2",
+            "unit": "cups"
+          },
+          {
+            "name": "Sugar",
+            "quantity": "1",
+            "unit": "cup"
+          },
+          {
+            "name": "Butter",
+            "quantity": "1",
+            "unit": "cup"
+          },
+          {
+            "name": "Egg",
+            "quantity": "2",
+            "unit": "pieces"
+          },
+          {
+            "name": "Chocolate Chips",
+            "quantity": "1",
+            "unit": "cup"
+          }
+        ],
+        "instructions": [
+          "Preheat the oven to 180°C (350°F).",
+          "Cream together butter and sugar.",
+          "Add eggs and mix well.",
+          "Gradually add flour and mix until smooth.",
+          "Stir in chocolate chips.",
+          "Scoop spoonfuls of dough onto a baking sheet.",
+          "Bake for 10-12 minutes until golden brown."
+        ],
+        "prep_time": 15,
+        "cook_time": 12,
+        "max_time": 27,
+        "difficulty": "medium",
+        "ingredients_count": 5,
+        "meal_type": "dessert",
+        "image_url": "https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookies-recipe-1-768x768.jpg"
+      },
+      {
+        "name": "Caesar Salad",
+        "description": "A classic Caesar salad with crispy croutons and creamy dressing.",
+        "ingredients": [
+          {
+            "name": "Romaine Lettuce",
+            "quantity": "1",
+            "unit": "head"
+          },
+          {
+            "name": "Croutons",
+            "quantity": "1",
+            "unit": "cup"
+          },
+          {
+            "name": "Parmesan Cheese",
+            "quantity": "1/4",
+            "unit": "cup"
+          },
+          {
+            "name": "Caesar Dressing",
+            "quantity": "2",
+            "unit": "tbsp"
+          }
+        ],
+        "instructions": [
+          "Chop the romaine lettuce into bite-sized pieces.",
+          "Toss the lettuce with Caesar dressing.",
+          "Add croutons and Parmesan cheese on top.",
+          "Serve immediately."
+        ],
+        "prep_time": 10,
+        "cook_time": 0,
+        "max_time": 10,
+        "difficulty": "easy",
+        "ingredients_count": 4,
+        "meal_type": "salad",
+        "image_url": "https://cookieandkate.com/images/2021/05/caesar-salad-in-bowl.jpg"
+      }
+]
