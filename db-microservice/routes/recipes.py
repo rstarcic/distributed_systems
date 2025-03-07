@@ -9,8 +9,15 @@ router = APIRouter(prefix="/recipes", tags=["Recipes"])
 @router.get("/", response_model=list[RecipeResponse])
 def get_all_recipes():
     recipes_table = get_table("Recipes")
-    response = recipes_table.scan()
-    return response.get("Items", [])
+    
+    if recipes_table is None:
+        raise HTTPException(status_code=500, detail="Could not connect to the Recipes table.")
+    
+    try:
+        response = recipes_table.scan()
+        return response.get("Items", [])
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error while fetching data from Recipes table: {str(e)}")
 
 @router.post("/", response_model=RecipeResponse)
 def create_recipe(recipe: RecipeRequest):
@@ -29,4 +36,3 @@ def create_recipe(recipe: RecipeRequest):
     
     recipes_table.put_item(Item=recipe_dict)
     return recipe_dict
-

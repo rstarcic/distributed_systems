@@ -23,4 +23,6 @@ def get_table(table_name):
             return table
         except Exception as e:
             print(f"Error accessing table {table_name}: {e}")
-    return None
+    else:
+        print("DynamoDB resource is not available.")
+        return None
