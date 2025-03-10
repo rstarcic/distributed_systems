@@ -129,6 +129,7 @@ env.bak/
 venv.bak/
 auth-microservice/auth-microservice
 classic-microservice/classic-microservice
+recommendation-microservice/recommendation-microservice
 
 # Spyder project settings
 .spyderproject

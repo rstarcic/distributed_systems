@@ -19,6 +19,22 @@ def get_all_recipes():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error while fetching data from Recipes table: {str(e)}")
 
+@router.get("/{id}", response_model=RecipeResponse)
+def get_recipe_by_id(id: str):
+    recipes_table = get_table("Recipes")
+    
+    if recipes_table is None:
+        raise HTTPException(status_code=500, detail="Could not connect to the Recipes table.")
+    
+    try:
+        response = recipes_table.get_item(Key={"recipe_id": id})
+        if "Item" in response:
+            return response["Item"]
+        else:
+            raise HTTPException(status_code=404, detail="Recipe not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error while fetching data from Recipes table: {str(e)}")
+
 @router.post("/", response_model=RecipeResponse)
 def create_recipe(recipe: RecipeRequest):
     recipes_table = get_table("Recipes")
