@@ -1,13 +1,14 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from boto3.dynamodb.conditions import Key
 from models import RecipeResponse, RecipeRequest
 from database import get_table
 import uuid
+from routes.auth import verify_user_token
 
 router = APIRouter(prefix="/recipes", tags=["Recipes"])
 
 @router.get("/", response_model=list[RecipeResponse])
-def get_all_recipes():
+def get_all_recipes(token: str = Depends(verify_user_token)):
     recipes_table = get_table("Recipes")
     
     if recipes_table is None:
@@ -20,7 +21,8 @@ def get_all_recipes():
         raise HTTPException(status_code=500, detail=f"Error while fetching data from Recipes table: {str(e)}")
 
 @router.get("/{id}", response_model=RecipeResponse)
-def get_recipe_by_id(id: str):
+def get_recipe_by_id(id: str, token: str = Depends(verify_user_token)):
+    print(f"Received id: {id}")
     recipes_table = get_table("Recipes")
     
     if recipes_table is None:
@@ -35,8 +37,8 @@ def get_recipe_by_id(id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error while fetching data from Recipes table: {str(e)}")
 
-@router.post("/", response_model=RecipeResponse)
-def create_recipe(recipe: RecipeRequest):
+@router.post("/", response_model=RecipeResponse, status_code=201)
+def create_recipe(recipe: RecipeRequest, token: str = Depends(verify_user_token)):
     recipes_table = get_table("Recipes")
     existing_recipe = recipes_table.query(
         IndexName="recipe-name-index",

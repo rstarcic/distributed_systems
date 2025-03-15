@@ -61,6 +61,7 @@ async def get_filtered_recipes(
 
                 return filtered_recipes
             else:
+                print(f"Failed to fetch recipes, status code: {response.status}")
                 raise HTTPException(status_code=response.status, detail="Error fetching recipes")
 
     except aiohttp.ClientError as e:
