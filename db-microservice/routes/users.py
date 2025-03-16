@@ -1,12 +1,16 @@
 from fastapi import APIRouter, HTTPException
 from database import get_table
-from routes.auth import verify_user_token
+from utils import convert_time
+from models import UserRegisterRequest
 from boto3.dynamodb.conditions import Key
+import uuid
 
-router = APIRouter(prefix="/users", tags=["Ingredients"])
+router = APIRouter(prefix="/users", tags=["Users"])
 
-@router.post("/", response_model=UserRegisterResponse)
+@router.post("/", status_code=201)
 def create_user(user: UserRegisterRequest):
+    email = user.email
+    hashed_password = user.password
     users_table = get_table("Users")
     
     if not users_table:
@@ -17,5 +21,15 @@ def create_user(user: UserRegisterRequest):
         KeyConditionExpression=Key("email").eq(user.email)
     )
     if response["Items"]:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    # DORADA
+        raise HTTPException(status_code=409, detail="Email already registered")
+    
+    user_id = str(uuid.uuid4())
+    created_at = convert_time()
+    new_user = {
+        "user_id": user_id,
+        "email": email,
+        "password": hashed_password,
+        "created_at": created_at, 
+    }
+    users_table.put_item(Item=new_user)
+    return {"status": "201", "message": "User registered successfully"}

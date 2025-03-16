@@ -34,3 +34,7 @@ class RecipeRequest(BaseModel):
     ingredients_count: int
     meal_type: Literal["breakfast", "lunch", "dinner", "salad", "dessert"]
     image_url: str
+
+class UserRegisterRequest(BaseModel):
+    email: str
+    password: str

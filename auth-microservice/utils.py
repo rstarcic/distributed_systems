@@ -13,10 +13,6 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def convert_time():
-    utc_time = datetime.now(timezone.utc).isoformat()
-    return utc_time
-
 def hash_password(password: str):
     return pwd_context.hash(password)
 

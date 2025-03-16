@@ -11,12 +11,8 @@ class TokenData(BaseModel):
 class User(BaseModel):
     email: str
 
-class UserRegisterRequest(User):
-    password: str
-
-class UserRegisterResponse(User):
-    user_id: str
-    created_at: datetime
+class UserRegisterResponse(BaseModel):
+    hashed_password: str
 
 class UserLoginRequest(User):
     password: str

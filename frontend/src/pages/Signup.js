@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { Card, InputAdornment, CardActions, CardContent, Button, IconButton, Typography, TextField } from '@mui/material';
+import { Card, InputAdornment, CardActions, CardContent, Button, IconButton, Typography, TextField, Snackbar, Alert } from '@mui/material';
 import "../styles/Signup.css"
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router';
 import axios from "axios";
 
-const API_URL = "http://localhost:8000/auth";
+const CLASSIC_URL = "http://localhost:8002";
 
 const Signup = () => {
     const [email, setEmail] = useState("");
@@ -14,7 +14,10 @@ const Signup = () => {
     const [confirmedPassword, setConfirmedPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmedPassword, setShowConfirmedPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(""); 
+    const [message, setMessage] = useState("");
+    const [messageType, setMessageType] = useState("success");
+    const [open, setOpen] = useState(false);
+
 
     const navigate = useNavigate()
 
@@ -28,26 +31,36 @@ const Signup = () => {
 
     const handleSignup = async () => {
         if (password !== confirmedPassword) {
-            setErrorMessage("Passwords do not match!");
-        } else {
-            setErrorMessage("");
+            setMessage("Passwords do not match!");
+            setMessageType("error");
+            return;
         }
         try {
-            const response = await axios.post(`${API_URL}/register`, new URLSearchParams({ email: email, password: password }), {
+            const response = await axios.post(`${CLASSIC_URL}/auth/registration`, new URLSearchParams({ email: email, password: password }), {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
     
             if (response.status === 200) {
-                console.log("Sign up successful!");
-                alert("Sign up successful!");
-                navigate("/login"); 
-            } else {
-                setErrorMessage("Failed to sign up. Please try again.");
+                setMessage("User registered successfully! 🎉");
+                setMessageType("success");
+                setTimeout(() => {
+                    navigate("/login");
+                }, 2000);
             }
         } catch (error) {
-            console.error("Sign up error:", error);
-            setErrorMessage("Sign up failed! Please check your details.");
+            if(error.response) {
+                if (error.response.status === 409) {
+                    setMessage("User with this email alredy exists.");
+                    setMessageType("error");
+                } else {
+                    setMessage("Failed to sign up. Please try again.");
+                }
+            } else {
+                setMessage("Sign up failed! Please check your details.");
+            }
+        setMessageType("error");
         }
+        setOpen(true);
     };
 
     return (
@@ -91,12 +104,16 @@ const Signup = () => {
                         },
                     } }
                     />
-                    {errorMessage && <Typography color="error">{errorMessage}</Typography>}
              </CardContent>
               <CardActions className="signup-card-actions">
                 <Button className="signin-button" variant="contained" size="medium" onClick={handleSignup}>Sign in</Button>
               </CardActions>
             </Card>
+            <Snackbar open={open} autoHideDuration={3000} onClose={() => setOpen(false)} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
+                <Alert onClose={() => setOpen(false)} severity={messageType}>
+                    {message}
+                </Alert>
+            </Snackbar>
     </div>      
     );
   };
