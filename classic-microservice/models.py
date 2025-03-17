@@ -32,3 +32,7 @@ class RecipeRequest(BaseModel):
     ingredients_count: int
     meal_type: Literal["breakfast", "lunch", "dinner", "salad", "dessert"]
     image_url: str
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str

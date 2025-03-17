@@ -6,7 +6,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = "http://localhost:8000/auth";
+const API_URL = "http://localhost:8002";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        `${API_URL}/login`,
+        `${API_URL}/auth/login`,
         new URLSearchParams({ username: email, password: password }),
         {
           headers: {
