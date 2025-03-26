@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from database import get_table
 from utils import convert_time
-from models import UserRegisterRequest, UserLoginRequest
+from models import UserRegisterRequest
 from boto3.dynamodb.conditions import Key
 import uuid
 

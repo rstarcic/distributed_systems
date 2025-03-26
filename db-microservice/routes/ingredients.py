@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, HTTPException
 from database import get_table
 
 router = APIRouter(prefix="/ingredients", tags=["Ingredients"])
@@ -10,6 +10,9 @@ def get_all_ingredients():
     unique_ingredients = set()
 
     response = recipes_table.scan()
+    if not response.get("Items"):
+        raise HTTPException(status_code=404, detail="No recipes found in the database")
+
     for recipe in response.get("Items", []):
         for ingredient in recipe["ingredients"]:
             unique_ingredients.add(ingredient["name"])

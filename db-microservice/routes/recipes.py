@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException
 from boto3.dynamodb.conditions import Key
 from models import RecipeResponse, RecipeRequest
 from database import get_table

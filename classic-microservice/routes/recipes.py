@@ -3,7 +3,7 @@ from routes.auth import verify_user_token
 from models import RecipeResponse, RecipeRequest
 import os
 import aiohttp
-from typing import Literal, Optional, List, Union
+from typing import Literal, Optional, List
 
 DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://localhost:8004")
 RECOMMENDATION_SERVICE_URL = os.getenv(
@@ -11,6 +11,26 @@ RECOMMENDATION_SERVICE_URL = os.getenv(
 )
 
 router = APIRouter(prefix="/recipes", tags=["Recipes"])
+
+
+@router.get("/ingredients", response_model=List[str])
+async def get_ingredients_from_db(token: str = Depends(verify_user_token)):
+    try:
+        async with aiohttp.ClientSession() as session:
+            response = await session.get(f"{DATABASE_SERVICE_URL}/ingredients")
+            if response.status == 200:
+                ingredients = await response.json()
+                return ingredients
+            elif response.status == 404:
+                raise HTTPException(status_code=404, detail="No ingredients found")
+            else:
+                detail = await response.text()
+                raise HTTPException(status_code=response.status, detail=detail)
+    except aiohttp.ClientError as error:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error while connecting to the database service: {str(error)}",
+        )
 
 
 @router.get("/")

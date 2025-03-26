@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from routes.recommendation import router as recommendation_router
 
 load_dotenv()
