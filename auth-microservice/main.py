@@ -5,7 +5,7 @@ from routes.auth import router as auth_router
 
 load_dotenv()
 
-app = FastAPI()
+app = FastAPI(title="Auth microservice")
 
 app.add_middleware(
     CORSMiddleware,

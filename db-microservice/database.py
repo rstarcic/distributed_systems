@@ -11,7 +11,7 @@ def get_dynamodb():
                 "AWS_SECRET_ACCESS_KEY", "my_fake_secret_key"
             ),
             region_name=os.getenv("AWS_REGION", "eu-central-1"),
-            endpoint_url=os.getenv("DYNAMODB_ENDPOINT", "http://localhost:4566"),
+            endpoint_url=os.getenv("DYNAMODB_ENDPOINT", "http://localstack:4566"),
         )
     except Exception as e:
         print(f"Could not initialize DynamoDB resource: {e}")

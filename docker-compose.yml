@@ -1,0 +1,73 @@
+services:
+  auth:
+    build: ./auth-microservice
+    container_name: auth-microservice
+    ports:
+      - "8001:8001"
+    env_file:     
+      - .env
+    depends_on:
+      - db-service
+    networks:
+      - recipe-app-network
+
+  classic:
+    build: ./classic-microservice
+    container_name: classic-microservice
+    ports:
+      - "8002:8002"
+    env_file:     
+      - .env
+    depends_on:
+      - auth
+      - recommendation
+      - db-service
+    networks:
+      - recipe-app-network
+    
+  recommendation:
+    build: ./recommendation-microservice
+    container_name: recommendation-microservice
+    ports:
+      - "8003:8003"
+    env_file:     
+      - .env
+    depends_on:
+      - db-service
+    networks:
+      - recipe-app-network
+
+  localstack:
+    build: ./db
+    image: localstack/localstack
+    container_name: dynamo-db-localstack
+    ports:
+      - "4566:4566"
+    env_file:     
+      - .env
+    environment:
+      - SERVICES=dynamodb,s3,lambda
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - REGION_NAME=${REGION_NAME}
+    networks:
+      - recipe-app-network
+  
+  db-service:
+    build: ./db-microservice
+    container_name: db-microservice
+    ports:
+      - "8004:8004"
+    depends_on:
+      - localstack
+    networks:
+      - recipe-app-network
+    environment:
+      - DYNAMO_ENDPOINT=${DYNAMODB_ENDPOINT}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - REGION_NAME=${REGION_NAME}
+
+networks:
+  recipe-app-network:
+    driver: bridge

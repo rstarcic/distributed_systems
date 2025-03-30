@@ -294,5 +294,249 @@
         "ingredients_count": 4,
         "meal_type": "salad",
         "image_url": "https://cookieandkate.com/images/2021/05/caesar-salad-in-bowl.jpg"
-      }
+      },
+    {
+    "name": "Spaghetti Aglio e Olio",
+    "description": "A simple yet delicious pasta dish with garlic, olive oil, and red pepper flakes.",
+    "ingredients": [
+      { "name": "Spaghetti", "quantity": "200", "unit": "grams" },
+      { "name": "Garlic", "quantity": "4", "unit": "cloves" },
+      { "name": "Olive Oil", "quantity": "3", "unit": "tbsp" },
+      { "name": "Red Pepper Flakes", "quantity": "1", "unit": "tsp" }
+    ],
+    "instructions": [
+      "Cook spaghetti according to package instructions.",
+      "Heat olive oil in a pan over medium heat.",
+      "Add garlic and red pepper flakes, sauté until fragrant.",
+      "Toss the cooked pasta in the garlic oil mixture.",
+      "Serve hot with grated Parmesan if desired."
+    ],
+    "prep_time": 5,
+    "cook_time": 10,
+    "max_time": 15,
+    "difficulty": "easy",
+    "ingredients_count": 4,
+    "meal_type": "lunch",
+    "image_url": "https://www.seriouseats.com/2020/03/20200318-spaghetti-aglio-e-olio.jpg"
+  },
+  {
+    "name": "Grilled Salmon",
+    "description": "A healthy and flavorful grilled salmon dish, perfect for dinner.",
+    "ingredients": [
+      { "name": "Salmon Fillets", "quantity": "2", "unit": "pieces" },
+      { "name": "Olive Oil", "quantity": "2", "unit": "tbsp" },
+      { "name": "Lemon", "quantity": "1", "unit": "piece" },
+      { "name": "Garlic", "quantity": "2", "unit": "cloves" }
+    ],
+    "instructions": [
+      "Preheat the grill to medium-high heat.",
+      "Brush the salmon fillets with olive oil and season with salt and pepper.",
+      "Grill the salmon for 4-5 minutes per side or until cooked through.",
+      "Squeeze lemon juice over the grilled salmon.",
+      "Serve with a side of vegetables or salad."
+    ],
+    "prep_time": 5,
+    "cook_time": 10,
+    "max_time": 15,
+    "difficulty": "medium",
+    "ingredients_count": 4,
+    "meal_type": "dinner",
+    "image_url": "https://www.healthline.com/hlcmsresource/images/2019/healthy-grilled-salmon.jpg"
+  },
+  {
+    "name": "Caprese Salad",
+    "description": "A classic Italian salad made with tomatoes, mozzarella, basil, and balsamic glaze.",
+    "ingredients": [
+      { "name": "Tomatoes", "quantity": "2", "unit": "pieces" },
+      { "name": "Mozzarella", "quantity": "1", "unit": "ball" },
+      { "name": "Basil", "quantity": "1", "unit": "handful" },
+      { "name": "Balsamic Vinegar", "quantity": "2", "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Slice the tomatoes and mozzarella.",
+      "Arrange the tomato and mozzarella slices on a plate.",
+      "Top with fresh basil leaves.",
+      "Drizzle with balsamic vinegar and olive oil.",
+      "Season with salt and pepper to taste."
+    ],
+    "prep_time": 10,
+    "cook_time": 0,
+    "max_time": 10,
+    "difficulty": "easy",
+    "ingredients_count": 4,
+    "meal_type": "salad",
+    "image_url": "https://www.acouplecooks.com/wp-content/uploads/2020/06/Caprese-Salad-017.jpg"
+  },
+  {
+    "name": "Beef Tacos",
+    "description": "A flavorful taco dish with seasoned ground beef and fresh toppings.",
+    "ingredients": [
+      { "name": "Ground Beef", "quantity": "500", "unit": "grams" },
+      { "name": "Taco Shells", "quantity": "6", "unit": "pieces" },
+      { "name": "Lettuce", "quantity": "1", "unit": "head" },
+      { "name": "Tomato", "quantity": "2", "unit": "pieces" },
+      { "name": "Cheddar Cheese", "quantity": "100", "unit": "grams" }
+    ],
+    "instructions": [
+      "Cook the ground beef in a pan until browned.",
+      "Add taco seasoning and water, cook for another 5 minutes.",
+      "Warm the taco shells in the oven.",
+      "Fill each taco shell with seasoned beef, lettuce, tomato, and cheese.",
+      "Serve with salsa or sour cream."
+    ],
+    "prep_time": 10,
+    "cook_time": 15,
+    "max_time": 25,
+    "difficulty": "medium",
+    "ingredients_count": 5,
+    "meal_type": "lunch",
+    "image_url": "https://www.tasteofhome.com/wp-content/uploads/2019/07/Beef-Tacos_EXPS_FT21_27605_F_0324_1.jpg"
+  },
+  {
+    "name": "Chicken Stir-Fry",
+    "description": "A quick and healthy stir-fry with chicken and vegetables.",
+    "ingredients": [
+      { "name": "Chicken Breast", "quantity": "300", "unit": "grams" },
+      { "name": "Bell Pepper", "quantity": "1", "unit": "piece" },
+      { "name": "Broccoli", "quantity": "1", "unit": "head" },
+      { "name": "Soy Sauce", "quantity": "2", "unit": "tbsp" },
+      { "name": "Ginger", "quantity": "1", "unit": "inch" }
+    ],
+    "instructions": [
+      "Slice the chicken breast into thin strips.",
+      "Chop the bell pepper and broccoli into small pieces.",
+      "Heat some oil in a pan and stir-fry the chicken until cooked.",
+      "Add the vegetables and cook until tender.",
+      "Season with soy sauce and grated ginger."
+    ],
+    "prep_time": 10,
+    "cook_time": 10,
+    "max_time": 20,
+    "difficulty": "medium",
+    "ingredients_count": 5,
+    "meal_type": "dinner",
+    "image_url": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Stir-Fry_EXPS_FT19_206220_B_1018_1.jpg"
+  },
+  {
+    "name": "Vegetable Soup",
+    "description": "A comforting and hearty vegetable soup, perfect for cold days.",
+    "ingredients": [
+      { "name": "Carrot", "quantity": "2", "unit": "pieces" },
+      { "name": "Celery", "quantity": "2", "unit": "stalks" },
+      { "name": "Tomato", "quantity": "2", "unit": "pieces" },
+      { "name": "Potato", "quantity": "2", "unit": "pieces" },
+      { "name": "Vegetable Broth", "quantity": "4", "unit": "cups" }
+    ],
+    "instructions": [
+      "Chop the carrots, celery, tomatoes, and potatoes.",
+      "Heat some oil in a large pot and sauté the vegetables.",
+      "Add the vegetable broth and bring to a boil.",
+      "Simmer for 20 minutes until the vegetables are tender.",
+      "Season with salt, pepper, and herbs."
+    ],
+    "prep_time": 10,
+    "cook_time": 20,
+    "max_time": 30,
+    "difficulty": "easy",
+    "ingredients_count": 5,
+    "meal_type": "soup",
+    "image_url": "https://www.feastingathome.com/wp-content/uploads/2021/01/Vegetable-Soup.jpg"
+  },
+  {
+    "name": "Quinoa Salad",
+    "description": "A healthy and colorful quinoa salad with fresh vegetables and feta cheese.",
+    "ingredients": [
+      { "name": "Quinoa", "quantity": "1", "unit": "cup" },
+      { "name": "Cucumber", "quantity": "1", "unit": "piece" },
+      { "name": "Cherry Tomatoes", "quantity": "1", "unit": "cup" },
+      { "name": "Feta Cheese", "quantity": "1/2", "unit": "cup" },
+      { "name": "Olive Oil", "quantity": "2", "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Cook the quinoa according to package instructions.",
+      "Chop the cucumber and cherry tomatoes.",
+      "In a large bowl, combine the quinoa, vegetables, and crumbled feta.",
+      "Drizzle with olive oil and season with salt and pepper."
+    ],
+    "prep_time": 10,
+    "cook_time": 15,
+    "max_time": 25,
+    "difficulty": "easy",
+    "ingredients_count": 5,
+    "meal_type": "salad",
+    "image_url": "https://www.eatingbirdfood.com/wp-content/uploads/2021/05/quinoa-salad-3.jpg"
+  },
+  {
+    "name": "Vegetarian Chili",
+    "description": "A rich and hearty vegetarian chili with beans and vegetables.",
+    "ingredients": [
+      { "name": "Black Beans", "quantity": "1", "unit": "can" },
+      { "name": "Kidney Beans", "quantity": "1", "unit": "can" },
+      { "name": "Tomato", "quantity": "2", "unit": "pieces" },
+      { "name": "Onion", "quantity": "1", "unit": "piece" },
+      { "name": "Chili Powder", "quantity": "1", "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Chop the tomatoes and onion.",
+      "In a pot, sauté the onion until soft.",
+      "Add the beans, tomatoes, and chili powder.",
+      "Simmer for 20 minutes to blend the flavors.",
+      "Serve hot with sour cream or cheese."
+    ],
+    "prep_time": 10,
+    "cook_time": 30,
+    "max_time": 40,
+    "difficulty": "medium",
+    "ingredients_count": 5,
+    "meal_type": "dinner",
+    "image_url": "https://www.eatingwell.com/thmb/mqD9JXYIYRaJhL1_qW1itf1m-v8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-chili-5864323-hero-01-98427609e7fc47b1b9823c9fa6e79899.jpg"
+  },
+   {
+    "name": "Vegetable Stir-Fry",
+    "description": "A quick and colorful stir-fry with a mix of vegetables.",
+    "ingredients": [
+      { "name": "Bell Pepper", "quantity": "1", "unit": "piece" },
+      { "name": "Carrot", "quantity": "1", "unit": "piece" },
+      { "name": "Broccoli", "quantity": "1", "unit": "head" },
+      { "name": "Soy Sauce", "quantity": "2", "unit": "tbsp" },
+      { "name": "Sesame Oil", "quantity": "1", "unit": "tbsp" }
+    ],
+    "instructions": [
+      "Chop the vegetables into bite-sized pieces.",
+      "Heat sesame oil in a pan and stir-fry the vegetables.",
+      "Add soy sauce and cook for an additional 3-5 minutes.",
+      "Serve hot with rice or noodles."
+    ],
+    "prep_time": 10,
+    "cook_time": 10,
+    "max_time": 20,
+    "difficulty": "easy",
+    "ingredients_count": 5,
+    "meal_type": "lunch",
+    "image_url": "https://www.thekitchn.com/wp-content/uploads/2017/10/Vegetable-Stir-Fry-Lead-04-1500.jpg"
+  },
+  {
+    "name": "Grilled Chicken Tacos",
+    "description": "Delicious grilled chicken wrapped in soft tacos with fresh toppings.",
+    "ingredients": [
+      { "name": "Chicken Breasts", "quantity": "2", "unit": "pieces" },
+      { "name": "Taco Shells", "quantity": "6", "unit": "pieces" },
+      { "name": "Cilantro", "quantity": "1", "unit": "handful" },
+      { "name": "Lime", "quantity": "1", "unit": "piece" },
+      { "name": "Sour Cream", "quantity": "1/2", "unit": "cup" }
+    ],
+    "instructions": [
+      "Grill the chicken breasts until cooked through.",
+      "Warm the taco shells in the oven.",
+      "Slice the grilled chicken and place it in the taco shells.",
+      "Top with cilantro, a squeeze of lime, and a dollop of sour cream."
+    ],
+    "prep_time": 10,
+    "cook_time": 15,
+    "max_time": 25,
+    "difficulty": "medium",
+    "ingredients_count": 5,
+    "meal_type": "lunch",
+    "image_url": "https://www.delish.com/entertaining/menus/a19965288/grilled-chicken-tacos/"
+  }
 ]
