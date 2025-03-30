@@ -4,7 +4,9 @@ import os
 import aiohttp
 import random
 
-DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_ENDPOINT", "http://localhost:8004")
+DATABASE_SERVICE_URL = os.getenv(
+    "DATABASE_SERVICE_ENDPOINT", "http://db-microservice:8004"
+)
 
 router = APIRouter(prefix="/recommend", tags=["Recommend"])
 

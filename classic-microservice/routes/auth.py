@@ -8,7 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 AUTH_SERVICE_ENDPOINT = os.getenv("AUTH_SERVICE_ENDPOINT", "http://localhost:8001")
-DB_SERVICE_ENDPOINT = os.getenv("DATABASE_SERVICE_ENDPOINT", "http://localhost:8004")
+DB_SERVICE_ENDPOINT = os.getenv(
+    "DATABASE_SERVICE_ENDPOINT", "http://db-microservice:8004"
+)
 AUTH_API_KEY = os.getenv("AUTH_API_KEY")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{AUTH_SERVICE_ENDPOINT}/auth/login")
 

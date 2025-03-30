@@ -293,7 +293,7 @@
         "difficulty": "easy",
         "ingredients_count": 4,
         "meal_type": "salad",
-        "image_url": "https://cookieandkate.com/images/2021/05/caesar-salad-in-bowl.jpg"
+        "image_url": "https://natashaskitchen.com/wp-content/uploads/2019/01/Caesar-Salad-Recipe-3-768x1152.jpg"
       },
     {
     "name": "Spaghetti Aglio e Olio",
@@ -317,7 +317,7 @@
     "difficulty": "easy",
     "ingredients_count": 4,
     "meal_type": "lunch",
-    "image_url": "https://www.seriouseats.com/2020/03/20200318-spaghetti-aglio-e-olio.jpg"
+    "image_url": "https://recepti-api.index.hr/img/preview/large/recipe-mobile/69a9065a-38a2-4c51-9666-317823a133c7/shutterstock_98602499-crop.jpg"
   },
   {
     "name": "Grilled Salmon",
@@ -341,7 +341,7 @@
     "difficulty": "medium",
     "ingredients_count": 4,
     "meal_type": "dinner",
-    "image_url": "https://www.healthline.com/hlcmsresource/images/2019/healthy-grilled-salmon.jpg"
+    "image_url": "https://www.foodiecrush.com/wp-content/uploads/2019/05/Grilled-Salmon-foodiecrush.com-023-1024x1536.jpg"
   },
   {
     "name": "Caprese Salad",
@@ -365,7 +365,7 @@
     "difficulty": "easy",
     "ingredients_count": 4,
     "meal_type": "salad",
-    "image_url": "https://www.acouplecooks.com/wp-content/uploads/2020/06/Caprese-Salad-017.jpg"
+    "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2019/08/caprese-salad-recipe.jpg"
   },
   {
     "name": "Beef Tacos",
@@ -390,7 +390,7 @@
     "difficulty": "medium",
     "ingredients_count": 5,
     "meal_type": "lunch",
-    "image_url": "https://www.tasteofhome.com/wp-content/uploads/2019/07/Beef-Tacos_EXPS_FT21_27605_F_0324_1.jpg"
+    "image_url": "https://feelgoodfoodie.net/wp-content/uploads/2017/04/Ground-Beef-Tacos-9.jpg"
   },
   {
     "name": "Chicken Stir-Fry",
@@ -415,32 +415,7 @@
     "difficulty": "medium",
     "ingredients_count": 5,
     "meal_type": "dinner",
-    "image_url": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Chicken-Stir-Fry_EXPS_FT19_206220_B_1018_1.jpg"
-  },
-  {
-    "name": "Vegetable Soup",
-    "description": "A comforting and hearty vegetable soup, perfect for cold days.",
-    "ingredients": [
-      { "name": "Carrot", "quantity": "2", "unit": "pieces" },
-      { "name": "Celery", "quantity": "2", "unit": "stalks" },
-      { "name": "Tomato", "quantity": "2", "unit": "pieces" },
-      { "name": "Potato", "quantity": "2", "unit": "pieces" },
-      { "name": "Vegetable Broth", "quantity": "4", "unit": "cups" }
-    ],
-    "instructions": [
-      "Chop the carrots, celery, tomatoes, and potatoes.",
-      "Heat some oil in a large pot and sauté the vegetables.",
-      "Add the vegetable broth and bring to a boil.",
-      "Simmer for 20 minutes until the vegetables are tender.",
-      "Season with salt, pepper, and herbs."
-    ],
-    "prep_time": 10,
-    "cook_time": 20,
-    "max_time": 30,
-    "difficulty": "easy",
-    "ingredients_count": 5,
-    "meal_type": "soup",
-    "image_url": "https://www.feastingathome.com/wp-content/uploads/2021/01/Vegetable-Soup.jpg"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcf4aSq01-Cw0-iKHuAGYgz20BvXOFV9yprA&s"
   },
   {
     "name": "Quinoa Salad",
@@ -464,7 +439,7 @@
     "difficulty": "easy",
     "ingredients_count": 5,
     "meal_type": "salad",
-    "image_url": "https://www.eatingbirdfood.com/wp-content/uploads/2021/05/quinoa-salad-3.jpg"
+    "image_url": "https://cdn.loveandlemons.com/wp-content/uploads/2020/08/quinoa-salad.jpg"
   },
   {
     "name": "Vegetarian Chili",
@@ -489,7 +464,7 @@
     "difficulty": "medium",
     "ingredients_count": 5,
     "meal_type": "dinner",
-    "image_url": "https://www.eatingwell.com/thmb/mqD9JXYIYRaJhL1_qW1itf1m-v8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/vegetarian-chili-5864323-hero-01-98427609e7fc47b1b9823c9fa6e79899.jpg"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2KSlBnFzey4VDaKplO7FdD7x2CCg_3lO6tg&s"
   },
    {
     "name": "Vegetable Stir-Fry",
@@ -513,7 +488,7 @@
     "difficulty": "easy",
     "ingredients_count": 5,
     "meal_type": "lunch",
-    "image_url": "https://www.thekitchn.com/wp-content/uploads/2017/10/Vegetable-Stir-Fry-Lead-04-1500.jpg"
+    "image_url": "https://natashaskitchen.com/wp-content/uploads/2020/08/Vegetable-Stir-Fry-2.jpg"
   },
   {
     "name": "Grilled Chicken Tacos",
@@ -537,6 +512,6 @@
     "difficulty": "medium",
     "ingredients_count": 5,
     "meal_type": "lunch",
-    "image_url": "https://www.delish.com/entertaining/menus/a19965288/grilled-chicken-tacos/"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFB7yzviXw-P2DZ0LcWT751GFm8AvxGOkq-g&s"
   }
 ]

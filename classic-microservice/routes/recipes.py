@@ -5,7 +5,7 @@ import os
 import aiohttp
 from typing import Literal, Optional, List
 
-DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://localhost:8004")
+DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://db-microservice:8004")
 RECOMMENDATION_SERVICE_URL = os.getenv(
     "RECOMMENDATION_SERVICE_ENDPOINT", "http://localhost:8003"
 )

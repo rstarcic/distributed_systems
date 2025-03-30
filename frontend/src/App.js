@@ -9,16 +9,15 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={ <Login /> }></Route>
-          <Route path="/signup" element={ <Signup/> }></Route>
-          <Route path="/recipes" element={ <Recipes/> }></Route>
-        </Routes>
+          <Navbar />
+          <Routes>
+            <Route path="/login" element={ <Login /> } />
+            <Route path="/signup" element={ <Signup /> } />
+            <Route path="/recipes" element={ <Recipes /> } />
+          </Routes>
       </Router>
     </>   
   );
-      
 }
 
 export default App;
