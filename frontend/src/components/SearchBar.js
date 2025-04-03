@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import SearchIcon from '@mui/icons-material/Search';
-import TextField from '@mui/material/TextField';
-import { InputAdornment } from '@mui/material';
+import React, { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
+import { InputAdornment, Box } from "@mui/material";
 
 export default function SearchBar() {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
 
   return (
-    <div>
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "20vh" }}>
       <TextField
+        sx={{ width: "15vw" }}
         value={searchText}
-        onChange={handleSearchChange} 
+        onChange={handleSearchChange}
         label="Search"
         variant="outlined"
         slotProps={{
@@ -27,6 +28,6 @@ export default function SearchBar() {
           },
         }}
       />
-    </div>
+    </Box>
   );
 }
