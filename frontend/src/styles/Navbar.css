@@ -6,6 +6,10 @@
   color: #ffffff;
 }
 
+.navbar-title.shifted {
+  margin-left: calc(100vw / 6.6);
+}
+
 .button-container {
   display: flex;
   flex-direction: row;

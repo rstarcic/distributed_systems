@@ -1,0 +1,13 @@
+.recipe-details-container {
+  background-image: url("../assets/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  min-width: 99vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding-top: 10vh;
+}

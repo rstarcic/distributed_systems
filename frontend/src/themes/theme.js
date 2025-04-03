@@ -1,29 +1,48 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FFAA33", 
-      contrastText: "#ffffff"
+      main: "#FFAA33",
+      contrastText: "#ffffff",
     },
     secondary: {
       main: "#9E9FA5",
-      contrastText: "#ffffff"
-    }
+      contrastText: "#ffffff",
+    },
+  },
+  typography: {
+    h4: {
+      fontSize: "2rem",
+      fontWeight: 600,
+      textAlign: "center",
+      marginBottom: "16px",
+    },
+    h6: {
+      fontSize: "1.25rem",
+      fontWeight: 500,
+      marginTop: "16px",
+    },
+    body1: {
+      fontSize: "1rem",
+      lineHeight: 1.6,
+      fontWeight: 500,
+      marginTop: "5px",
+    },
   },
   components: {
     MuiAppBar: {
       styleOverrides: {
         root: {
-          background: '#f28c28',
+          background: "#f28c28",
         },
       },
     },
     MuiTextField: {
       styleOverrides: {
         root: {
-          '& .MuiOutlinedInput-root': {
-            backgroundColor: 'white',
-            borderRadius: '8px',
+          "& .MuiOutlinedInput-root": {
+            backgroundColor: "white",
+            borderRadius: "8px",
           },
         },
       },
@@ -31,14 +50,13 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: '#FAF9F6',
-          borderRadius: '3px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-         
+          backgroundColor: "#FAF9F6",
+          borderRadius: "3px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
         },
       },
     },
-     MuiDrawer: {
+    MuiDrawer: {
       styleOverrides: {
         root: {
           width: 320,
@@ -51,7 +69,7 @@ const theme = createTheme({
         },
       },
     },
-  }
+  },
 });
 
 export default theme;

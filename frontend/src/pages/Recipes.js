@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import RecipeList from "../components/RecipeList";
-import { Drawer, Typography } from "@mui/material";
+import { Box, Drawer, Typography } from "@mui/material";
 import { RecipeFilters } from "../components/RecipeFilters";
 import axios from "axios";
 
@@ -150,7 +150,9 @@ const Recipes = () => {
       <Drawer variant="permanent" anchor="left">
         <RecipeFilters onFilter={handleApplyFilters} />
       </Drawer>
-      {isRandomRecipeVisible && !loading ? <RecipeList recipes={[randomRecipe]} loading={loading} /> : <RecipeList recipes={recipes} loading={loading} />}
+      <Box>
+        {isRandomRecipeVisible && !loading ? <RecipeList recipes={[randomRecipe]} loading={loading} /> : <RecipeList recipes={recipes} loading={loading} />}
+      </Box>
     </div>
   );
 };
