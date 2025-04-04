@@ -3,11 +3,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { InputAdornment, Box } from "@mui/material";
 
-export default function SearchBar() {
+export default function SearchBar({ onSearch }) {
   const [searchText, setSearchText] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
+    onSearch(event.target.value);
   };
 
   return (
@@ -22,7 +23,7 @@ export default function SearchBar() {
           input: {
             startAdornment: (
               <InputAdornment position="end">
-                <SearchIcon />
+                <SearchIcon style={{ marginLeft: "0.5vw", marginRight: "0.5vw" }} />
               </InputAdornment>
             ),
           },

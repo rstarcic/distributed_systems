@@ -1,20 +1,19 @@
 .navbar-title {
   font-size: 1.5rem !important;
   font-weight: bold;
-  flex-grow: 1;
   text-align: left;
   color: #ffffff;
 }
 
 .navbar-title.shifted {
-  margin-left: calc(100vw / 6.6);
+  margin-left: calc(100vw / 7);
 }
 
-.button-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
+.nav-buttons.shifted {
+  margin-left: 0;
+}
+.nav-buttons {
+  margin-right: calc(100vw / 7);
 }
 
 .signup-button {

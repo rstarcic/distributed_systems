@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import RecipeList from "../components/RecipeList";
-import { Box, Drawer, Typography } from "@mui/material";
+import { Box, Drawer, Snackbar, Alert } from "@mui/material";
 import { RecipeFilters } from "../components/RecipeFilters";
+import { useDebounce } from "../hooks/useDebounce";
 import axios from "axios";
 
 const Recipes = () => {
@@ -11,6 +12,9 @@ const Recipes = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isRandomRecipeVisible, setIsRandomRecipeVisible] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const debouncedSearchText = useDebounce(searchText, 600);
 
   const handleApplyFilters = (selectedFilters) => {
     console.log("Selected Filters:", selectedFilters);
@@ -67,6 +71,7 @@ const Recipes = () => {
   const fetchFilteredRecipes = async (filters) => {
     console.log("Kreće slanje zahtjeva.. ", filters);
     setLoading(true);
+    setError(null);
     try {
       const token = localStorage.getItem("token");
       const headers = {
@@ -89,6 +94,7 @@ const Recipes = () => {
         throw new Error("Failed to fetch recipes, server returned an error");
       }
     } catch (error) {
+      setError("Failed to fetch recipes. Please try again later.");
       console.error("Greška kod dohvaćanja recepata:", error);
     } finally {
       setLoading(false);
@@ -108,7 +114,7 @@ const Recipes = () => {
       setLoading(false);
     } catch (error) {
       console.error("Error fetching random recipe:", error);
-      setError("Failed to load random recipe");
+      setError("Failed to load random recipe.");
       setLoading(false);
     }
   };
@@ -136,22 +142,55 @@ const Recipes = () => {
     fetchRecipes();
   }, []);
 
-  if (error) {
-    return (
-      <Typography variant="h6" align="center" color="error">
-        {error}
-      </Typography>
-    );
-  }
+  const filteredRecipes =
+    searchText.trim() === "" ? recipes : recipes.filter((recipe) => recipe.name.toLowerCase().includes(debouncedSearchText.toLowerCase()));
+
+  useEffect(() => {
+    if (filteredRecipes.length === 0 && !loading) {
+      setOpenSnackbar(true);
+    }
+  }, [filteredRecipes, loading]);
 
   return (
     <div className="recipes-container">
-      <SearchBar></SearchBar>
+      <SearchBar
+        onSearch={(searchText) => {
+          setSearchText(searchText);
+        }}
+      ></SearchBar>
       <Drawer variant="permanent" anchor="left">
         <RecipeFilters onFilter={handleApplyFilters} />
       </Drawer>
       <Box>
-        {isRandomRecipeVisible && !loading ? <RecipeList recipes={[randomRecipe]} loading={loading} /> : <RecipeList recipes={recipes} loading={loading} />}
+        {error && !loading ? (
+          <Snackbar
+            open={openSnackbar}
+            autoHideDuration={3000}
+            onClose={() => setOpenSnackbar(false)}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          >
+            <Alert onClose={() => setOpenSnackbar(false)} severity="error">
+              {error}
+            </Alert>
+          </Snackbar>
+        ) : filteredRecipes.length === 0 && !loading ? (
+          <Snackbar
+            open={openSnackbar}
+            autoHideDuration={3000}
+            onClose={() => setOpenSnackbar(false)}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          >
+            <Alert onClose={() => setOpenSnackbar(false)} severity="info">
+              Oops! Looks like we don’t have what you’re looking for...
+              <br />
+              Try some different ingredients, or maybe adjust your filters a bit!
+            </Alert>
+          </Snackbar>
+        ) : isRandomRecipeVisible && !loading ? (
+          <RecipeList recipes={[randomRecipe]} loading={loading} />
+        ) : (
+          <RecipeList recipes={filteredRecipes} loading={loading} />
+        )}
       </Box>
     </div>
   );

@@ -4,6 +4,7 @@ import { Container, Card, CardContent, Typography, List, ListItem, Box, CardMedi
 import SpeedIcon from "@mui/icons-material/Speed";
 import prepTime from "../assets/chef-hat.png";
 import cookTime from "../assets/cooking-time.png";
+import defaultImage from "../assets/default.jpg";
 import axios from "axios";
 import "../styles/RecipeDetails.css";
 
@@ -42,8 +43,8 @@ function RecipeDetails() {
                 height: "auto",
                 objectFit: "contain",
               }}
-              image={recipe.image_url}
-              alt={recipe.name}
+              image={recipe.image_url || defaultImage}
+              alt={recipe.name || "Default Recipe Image"}
             />
           </Box>{" "}
           <Typography variant="h4" textAlign="center" gutterBottom>

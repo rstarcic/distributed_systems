@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Grid2, Card, CardMedia, CardHeader, CardContent, Button, Typography, Skeleton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import defaultImage from "../assets/default.jpg";
 
 export default function RecipeList({ recipes, loading }) {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ export default function RecipeList({ recipes, loading }) {
                 }}
               >
                 <Card sx={{ maxWidth: "14vw", height: "45vh" }}>
-                  <CardMedia component="img" image={recipe.image_url} alt="Recipe Image" sx={{ width: "100%", height: "60%" }} />
+                  <CardMedia component="img" image={recipe.image_url || defaultImage} alt="Recipe Image" sx={{ width: "100%", height: "60%" }} />
                   <CardHeader title={recipe.name} subheader="Quick and easy" />
                   <CardContent sx={{ flexGrow: 1, maxHeight: "30vh", overflow: "hidden" }}>
                     <Typography variant="body2" color="textSecondary">

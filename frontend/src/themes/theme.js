@@ -69,6 +69,25 @@ const theme = createTheme({
         },
       },
     },
+    MuiSnackbar: {
+      styleOverrides: {
+        root: {
+          left: "50% !important",
+          transform: "translateX(-50%) !important",
+          minWidth: "400px",
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.1rem",
+          padding: "16px 24px",
+          textAlign: "center",
+          alignItems: "center",
+        },
+      },
+    },
   },
 });
 
