@@ -8,6 +8,8 @@ import defaultImage from "../assets/default.jpg";
 import axios from "axios";
 import "../styles/RecipeDetails.css";
 
+const CLASSIC_URL = "http://localhost/classic";
+
 function RecipeDetails() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState([]);
@@ -20,8 +22,7 @@ function RecipeDetails() {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         };
-        const response = await axios.get(`http://127.0.0.1:8002/recipes/${id}`, { headers });
-        console.log(response.data);
+        const response = await axios.get(`${CLASSIC_URL}/recipes/${id}`, { headers });
         setRecipe(response.data);
       } catch (error) {
         console.error("Error fetching recipe details:", error);

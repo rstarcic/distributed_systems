@@ -1,10 +1,11 @@
 from dotenv import load_dotenv
+
+load_dotenv()
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.auth import router as auth_router
 from routes.recipes import router as recipes_router
 
-load_dotenv()
 
 app = FastAPI(title="Classic service")
 

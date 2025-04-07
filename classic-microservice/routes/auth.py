@@ -8,9 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 AUTH_SERVICE_ENDPOINT = os.getenv("AUTH_SERVICE_ENDPOINT", "http://localhost:8001")
-DB_SERVICE_ENDPOINT = os.getenv(
-    "DATABASE_SERVICE_ENDPOINT", "http://db-microservice:8004"
-)
+DB_SERVICE_ENDPOINT = os.getenv("DATABASE_SERVICE_ENDPOINT", "http://nginx/db")
 AUTH_API_KEY = os.getenv("AUTH_API_KEY")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{AUTH_SERVICE_ENDPOINT}/auth/login")
 
@@ -28,6 +26,8 @@ async def verify_user_token(token: str = Depends(oauth2_scheme)):
                 if response.status == 200:
                     user_data = await response.json()
                     return user_data
+                elif response.status == 401:
+                    raise HTTPException(status_code=401, detail="Not authenticated")
                 else:
                     detail = await response.text()
                     raise HTTPException(status_code=response.status, detail=detail)

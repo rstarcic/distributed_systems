@@ -10,9 +10,7 @@ import aiohttp
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30))
-DB_SERVICE_ENDPOINT = os.getenv(
-    "DATABASE_SERVICE_ENDPOINT", "http://db-microservice:8004"
-)
+DB_SERVICE_ENDPOINT = os.getenv("DATABASE_SERVICE_ENDPOINT", "http://nginx/db")
 AUTH_SERVICE_ENDPOINT = os.getenv("AUTH_SERVICE_ENDPOINT", "http://localhost:8001")
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])

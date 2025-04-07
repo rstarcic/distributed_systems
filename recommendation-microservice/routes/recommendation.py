@@ -4,9 +4,7 @@ import os
 import aiohttp
 import random
 
-DATABASE_SERVICE_URL = os.getenv(
-    "DATABASE_SERVICE_ENDPOINT", "http://db-microservice:8004"
-)
+DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_ENDPOINT", "http://nginx/db")
 
 router = APIRouter(prefix="/recommend", tags=["Recommend"])
 
@@ -30,7 +28,7 @@ async def get_filtered_recipes(
     match_all_bool = str(match_all).lower() == "true"
     try:
         async with aiohttp.ClientSession() as session:
-            response = await session.get(f"{DATABASE_SERVICE_URL}/recipes")
+            response = await session.get(f"{DATABASE_SERVICE_URL}/recipes/")
 
             if response.status == 200:
                 recipes = await response.json()
@@ -99,7 +97,7 @@ async def get_filtered_recipes(
 async def get_random_recipe():
     try:
         async with aiohttp.ClientSession() as session:
-            response = await session.get(f"{DATABASE_SERVICE_URL}/recipes")
+            response = await session.get(f"{DATABASE_SERVICE_URL}/recipes/")
             if response.status == 200:
                 recipes = await response.json()
                 if recipes:

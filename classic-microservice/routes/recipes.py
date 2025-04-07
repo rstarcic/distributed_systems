@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from routes.auth import verify_user_token
 from models import RecipeResponse, RecipeRequest
-import os
 import aiohttp
 from typing import Literal, Optional, List
+import os
 
-DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_URL", "http://db-microservice:8004")
+DATABASE_SERVICE_URL = os.getenv("DATABASE_SERVICE_ENDPOINT", "http://nginx/db")
 RECOMMENDATION_SERVICE_URL = os.getenv(
     "RECOMMENDATION_SERVICE_ENDPOINT", "http://localhost:8003"
 )
@@ -36,7 +36,6 @@ async def get_ingredients_from_db(token: str = Depends(verify_user_token)):
 @router.get("/")
 async def get_all_recipes(token: str = Depends(verify_user_token)):
     headers = {"Authorization": f"Bearer {token}"}
-
     try:
         async with aiohttp.ClientSession() as session:
             response = await session.get(

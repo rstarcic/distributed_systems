@@ -6,7 +6,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router";
 import axios from "axios";
 
-const CLASSIC_URL = "http://localhost:8002";
+const CLASSIC_URL = "http://localhost/classic";
 
 const Signup = () => {
   const [email, setEmail] = useState("");

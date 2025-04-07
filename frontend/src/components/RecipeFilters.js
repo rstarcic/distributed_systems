@@ -4,6 +4,8 @@ import ShuffleIcon from "@mui/icons-material/Shuffle";
 import ClearAllIcon from "@mui/icons-material/ClearAll";
 import axios from "axios";
 
+const CLASSIC_URL = "http://localhost/classic";
+
 export function RecipeFilters({ onFilter }) {
   const [dishType, setDishType] = useState("");
   const [ingredients, setIngredients] = useState([]);
@@ -25,7 +27,7 @@ export function RecipeFilters({ onFilter }) {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         };
-        const response = await axios.get("http://127.0.0.1:8002/recipes/ingredients", { headers });
+        const response = await axios.get(`${CLASSIC_URL}/recipes/ingredients`, { headers });
         setAvailableIngredients(response.data);
       } catch (error) {
         console.error("Error fetching ingredients:", error);
@@ -41,7 +43,6 @@ export function RecipeFilters({ onFilter }) {
     e.preventDefault();
     const filterParams = { dishType, ingredients, avoidIngredients, difficulty, maxTime, maxIngredients, matchAll };
     onFilter(filterParams);
-    console.log("Slanje parametara u parent: ", filterParams);
   };
 
   const handleChange = (setter) => (event) => {

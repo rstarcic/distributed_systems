@@ -1,46 +1,5 @@
 services:
-  auth:
-    build: ./auth-microservice
-    container_name: auth-microservice
-    ports:
-      - "8001:8001"
-    env_file:     
-      - .env
-    environment:
-      - ACCESS_TOKEN_EXPIRE_MINUTES=30
-    depends_on:
-      - db-service
-    networks:
-      - recipe-app-network
-
-  classic:
-    build: ./classic-microservice
-    container_name: classic-microservice
-    ports:
-      - "8002:8002"
-    env_file:     
-      - .env
-    depends_on:
-      - auth
-      - recommendation
-      - db-service
-    networks:
-      - recipe-app-network
-    
-  recommendation:
-    build: ./recommendation-microservice
-    container_name: recommendation-microservice
-    ports:
-      - "8003:8003"
-    env_file:     
-      - .env
-    depends_on:
-      - db-service
-    networks:
-      - recipe-app-network
-
   localstack:
-    build: ./db
     image: localstack/localstack
     container_name: dynamo-db-localstack
     ports:
@@ -54,21 +13,89 @@ services:
       - REGION_NAME=${REGION_NAME}
     networks:
       - recipe-app-network
-  
+
   db-service:
+    image: db-microservice
     build: ./db-microservice
-    container_name: db-microservice
     ports:
-      - "8004:8004"
+      - "8004"
+    env_file:
+      - .env
     depends_on:
       - localstack
-    networks:
-      - recipe-app-network
     environment:
       - DYNAMO_ENDPOINT=${DYNAMODB_ENDPOINT}
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - REGION_NAME=${REGION_NAME}
+    networks:
+      - recipe-app-network
+    deploy:
+      replicas: 1
+
+
+  auth:
+    image: auth-microservice
+    build: ./auth-microservice
+    ports:
+      - "8001"
+    env_file:     
+      - .env
+    environment:
+      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+    depends_on:
+      - db-service
+    networks:
+      - recipe-app-network
+    deploy:
+      replicas: 2
+
+  recommendation:
+    image: recommendation-microservice
+    build: ./recommendation-microservice
+    ports:
+      - "8003"
+    env_file:     
+      - .env
+    depends_on:
+      - db-service
+    networks:
+      - recipe-app-network
+    deploy:
+      replicas: 2
+
+  classic:
+    image: classic-microservice
+    build: ./classic-microservice
+    ports:
+      - "8002"
+    env_file:     
+      - .env
+    depends_on:
+      - auth
+      - recommendation
+      - db-service
+    environment:
+      - DATABASE_SERVICE_ENDPOINT=http://nginx/db
+    networks:
+      - recipe-app-network
+    deploy:
+      replicas: 2
+
+  nginx: 
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - classic
+      - auth
+      - recommendation
+      - db-service
+    volumes: 
+      - ./nginx.conf:/etc/nginx/nginx.conf 
+    networks:
+      - recipe-app-network
 
 networks:
   recipe-app-network:

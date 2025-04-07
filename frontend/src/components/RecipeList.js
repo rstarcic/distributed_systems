@@ -5,7 +5,6 @@ import defaultImage from "../assets/default.jpg";
 
 export default function RecipeList({ recipes, loading }) {
   const navigate = useNavigate();
-  console.log(recipes.length);
   return (
     <Box sx={{ flexGrow: 1, p: 2, ml: recipes.length <= 3 ? 0 : { xs: 0, md: "300px" } }}>
       <Grid2 container spacing={8} justifyContent="center" alignItems="center">

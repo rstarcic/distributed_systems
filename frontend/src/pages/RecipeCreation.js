@@ -3,6 +3,8 @@ import { Autocomplete, Container, TextField, Button, Box, Typography, Card, Card
 import AddIcon from "@mui/icons-material/Add";
 import axios from "axios";
 
+const CLASSIC_URL = "http://localhost/classic";
+
 function RecipeCreation() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -79,7 +81,7 @@ function RecipeCreation() {
         "Content-Type": "application/json",
       };
 
-      const response = await axios.post("http://127.0.0.1:8002/recipes/", recipeData, { headers });
+      const response = await axios.post(`${CLASSIC_URL}/recipes`, recipeData, { headers });
       setSnackbarMessage("Recipe created successfully!");
       setSnackbarSeverity("success");
       setSnackbarOpen(true);

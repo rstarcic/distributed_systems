@@ -6,6 +6,8 @@ import { RecipeFilters } from "../components/RecipeFilters";
 import { useDebounce } from "../hooks/useDebounce";
 import axios from "axios";
 
+const CLASSIC_URL = "http://localhost/classic";
+
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [randomRecipe, setRandomRecipe] = useState(null);
@@ -17,18 +19,15 @@ const Recipes = () => {
   const debouncedSearchText = useDebounce(searchText, 600);
 
   const handleApplyFilters = (selectedFilters) => {
-    console.log("Selected Filters:", selectedFilters);
     if (selectedFilters.randomRecipe) {
       fetchRandomRecipe();
     } else {
       setIsRandomRecipeVisible(false);
-      console.log(selectedFilters);
       fetchFilteredRecipes(selectedFilters);
     }
   };
 
   const buildQueryParams = (filters) => {
-    console.log("FILTERSSS: ", filters.dishType);
     const params = new URLSearchParams();
 
     if (filters.ingredients && filters.ingredients.length > 0) {
@@ -69,7 +68,6 @@ const Recipes = () => {
   };
 
   const fetchFilteredRecipes = async (filters) => {
-    console.log("Kreće slanje zahtjeva.. ", filters);
     setLoading(true);
     setError(null);
     try {
@@ -81,14 +79,13 @@ const Recipes = () => {
 
       const queryParams = buildQueryParams(filters);
 
-      const response = await axios.get("http://127.0.0.1:8002/recipes/filter", {
+      const response = await axios.get(`${CLASSIC_URL}/recipes/filter`, {
         headers,
         params: queryParams,
       });
 
       if (response.status === 200) {
         const data = response.data;
-        console.log("Dobiveni recepti: ", data);
         setRecipes(data);
       } else {
         throw new Error("Failed to fetch recipes, server returned an error");
@@ -108,7 +105,7 @@ const Recipes = () => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       };
-      const response = await axios.get("http://127.0.0.1:8002/recipes/random", { headers });
+      const response = await axios.get(`${CLASSIC_URL}/recipes/random`, { headers });
       setRandomRecipe(response.data);
       setIsRandomRecipeVisible(true);
       setLoading(false);
@@ -124,13 +121,11 @@ const Recipes = () => {
       setLoading(true);
       try {
         const token = localStorage.getItem("token");
-        console.log(token);
         const headers = {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         };
-        const response = await axios.get("http://127.0.0.1:8002/recipes", { headers });
-        console.log(response.data);
+        const response = await axios.get(`${CLASSIC_URL}/recipes`, { headers });
         setRecipes(response.data);
         setLoading(false);
       } catch (error) {

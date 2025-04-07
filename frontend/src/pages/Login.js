@@ -6,7 +6,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:8002";
+const API_URL = "http://localhost/classic";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -44,7 +44,6 @@ const Login = () => {
       if (response.status === 200) {
         showSnackbar("Login successful!", "success");
         navigate("/recipes");
-        console.log("Token:", response.data.access_token);
         localStorage.setItem("token", response.data.access_token);
       } else {
         showSnackbar("Login failed!", "error");
